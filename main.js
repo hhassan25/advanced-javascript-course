@@ -35,7 +35,7 @@ fn()
 //============================
 
 //session 3 function currying
-
+/*
 function sum(a, b, c){
     return a + b + c
 }
@@ -62,3 +62,48 @@ const add2 = curriedSum(2)
 const add3 = add2(3)
 const add5 = add3(5)
 console.log(add5)
+*/
+
+//=========================
+
+//session 4 this
+
+/*function sayMyName(name){
+    console.alog(`My name is ${name}`)
+}
+
+sayMyName('Hadi Hassan')
+sayMyName('Mark Zik')
+*/
+
+//implicit binding
+const person = {
+    name:'Hadi',
+    sayMyName: function(){
+        console.log(`My name is ${this.name}`)
+    },
+}
+person.sayMyName()
+
+//Explicit binding it uses call
+globalThis.name = 'Superman'
+function sayMyName(){
+    console.log(`My name is ${this.name}`)
+}
+sayMyName.call(person)
+
+//new binding
+function Person(name){
+    //this = {}
+    this.name = name
+}
+const p1 = new Person('Hadi')
+const p2 = new Person('Hassan')
+
+console.log(p1.name)
+console.log(p2.name)
+
+
+//Default binding
+//we add globalthis before the function
+sayMyName()
