@@ -1,0 +1,5 @@
+function currying
+
+Currying is a process in functional programming in whicn we transform a function with multiple arguments into a sequence of nesting functions that take one argument at a time.
+
+function f(a,b,c) is transformed into f(a)(b)(c)
