@@ -1,0 +1,10 @@
+Advanced Concepts
+	-Nested function's scope
+	-Closures
+	-Currying
+	-this keyword
+	-Prototype
+	-Prototype inheritance
+	-Class
+	-Iterables and Iterators
+	-Generators
