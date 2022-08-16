@@ -166,6 +166,9 @@ console.log(batman.getFullName())
 */
 //===========================================
 
+//session 6 classes
+
+/*
 class Person{
     constructor(fName, lName){
         this.firstName = fName
@@ -191,3 +194,34 @@ class SuperHero extends Person{
 
 const batman = new SuperHero('Hadi','Hassan')
 console.log(batman.sayMyName())
+
+*/
+//=========================================
+
+//session 7 iterables and iterators
+
+const obj = {
+    [Symbol.iterator]: function(){
+        let step = 0
+        const iterator = {
+            next: function(){
+                step++
+                if(step === 1){
+                    return{value: 'Hello', done: false}
+                }
+                else if(step === 2){
+                    return{value:'world', done: false}
+                }
+                else if(step === 3){
+                    return{value:'yes', done: false}
+                }
+                return{value: undefined ,done: true} 
+            }
+        }
+        return iterator
+    }
+}
+
+for(const word of obj){
+    console.log(word)
+}
