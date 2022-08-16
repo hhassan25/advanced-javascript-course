@@ -77,6 +77,8 @@ sayMyName('Mark Zik')
 */
 
 //implicit binding
+
+/*
 const person = {
     name:'Hadi',
     sayMyName: function(){
@@ -107,3 +109,56 @@ console.log(p2.name)
 //Default binding
 //we add globalthis before the function
 sayMyName()
+
+*/
+
+//==================================
+
+//session 5 prototype and inheritance
+
+/*
+function Person(fName, lName){
+    this.firsName = fName
+    this.lastName = lName
+}
+
+const p1 = new Person('Hadi', 'Hassan')
+const p2 = new Person('Super','Man')
+
+/*p1.getFullName = function(){
+    return this.firsName + ' ' + this.lastName
+}
+
+//to make prototype
+Person.prototype.getFullName = function(){
+    return this.firsName + ' ' + this.lastName
+}
+
+console.log(p1.getFullName())
+console.log(p2.getFullName())
+*/
+
+//inheritance
+
+function Person(fName, lName){
+    this.firsName = fName
+    this.lastName = lName
+}
+
+Person.prototype.getFullName = function(){
+    return this.firsName + ' ' + this.lastName
+}
+
+function SuperHero(fName, lName){
+    Person.call(this, fName, lName)
+    this.isSuperHerio = true
+}
+SuperHero.prototype.fightCrime = function(){
+    console.log('Fighting crime')
+}
+SuperHero.prototype = Object.create(Person.prototype)
+
+const batman = new SuperHero('Hadi', 'Superman')
+console.log(batman.getFullName())
+SuperHero.prototype.constructor = SuperHero
+console.log(batman.getFullName())
