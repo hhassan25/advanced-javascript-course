@@ -139,7 +139,7 @@ console.log(p2.getFullName())
 */
 
 //inheritance
-
+/*
 function Person(fName, lName){
     this.firsName = fName
     this.lastName = lName
@@ -162,3 +162,32 @@ const batman = new SuperHero('Hadi', 'Superman')
 console.log(batman.getFullName())
 SuperHero.prototype.constructor = SuperHero
 console.log(batman.getFullName())
+
+*/
+//===========================================
+
+class Person{
+    constructor(fName, lName){
+        this.firstName = fName
+        this.lastName = lName
+    }
+    sayMyName(){
+        return this.firstName + ' ' + this.lastName
+    }
+}
+
+const classP1 = new Person('Bruce', 'Lee')
+console.log(classP1.sayMyName())
+
+class SuperHero extends Person{
+    constructor(fName, lName){
+        super(fName, lName)
+        this.isSuperHero = true
+    }
+    fightCrime(){
+        console.log('fighting crime')
+    }
+}
+
+const batman = new SuperHero('Hadi','Hassan')
+console.log(batman.sayMyName())
