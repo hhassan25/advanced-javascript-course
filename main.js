@@ -200,6 +200,7 @@ console.log(batman.sayMyName())
 
 //session 7 iterables and iterators
 
+/*
 const obj = {
     [Symbol.iterator]: function(){
         let step = 0
@@ -223,5 +224,29 @@ const obj = {
 }
 
 for(const word of obj){
+    console.log(word)
+}
+
+*/
+//======================================
+
+//session 8 generators
+
+
+function normalFunction(){
+    console.log('hello')
+    console.log('world')
+}
+//normalFunction()
+//normalFunction()
+
+//generator function can pause the execution
+function* generatorFunction(){
+    yield 'Hello'
+    yield 'World'
+}
+
+const generatorObject = generatorFunction()
+for(const word of generatorObject){
     console.log(word)
 }
